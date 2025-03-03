@@ -4,6 +4,7 @@
   <p><strong>A Filesystem-like Shell for Kubernetes</strong></p>
   <p>
     <a href="#features">Features</a> •
+    <a href="#installation">Installation</a> •
     <a href="#commands">Commands</a> •
     <a href="#navigation">Navigation</a> •
     <a href="#virtual-filesystem">Virtual Filesystem</a>
@@ -15,6 +16,48 @@
 **K8sh** is a powerful interactive shell for Kubernetes that provides a filesystem-like navigation experience. Navigate through your Kubernetes resources as if they were directories and files, making cluster management intuitive and efficient.
 
 Say goodbye to lengthy `kubectl` commands and hello to a more natural way of interacting with your Kubernetes clusters.
+
+## 📦 Installation
+
+### Requirements
+
+- A working Kubernetes cluster
+- `kubectl` configured and working on your system
+- Python 3.11 or higher
+
+### Debian/Ubuntu Installation
+
+1. Download the latest `.deb` package from the [Releases](https://github.com/sc0rp10/k8sh/releases) page
+
+2. Install the package:
+   ```bash
+   sudo dpkg -i k8sh_1.0.2_all.deb
+   ```
+
+3. Start the shell:
+   ```bash
+   k8sh
+   ```
+
+### Verifying Installation
+
+After installation, verify that K8sh can connect to your Kubernetes cluster:
+
+```bash
+# Start the shell
+k8sh
+
+# List available namespaces
+ls /
+```
+
+If you see your Kubernetes namespaces listed, the installation was successful!
+
+### Troubleshooting
+
+- If K8sh can't connect to your cluster, verify that `kubectl` works correctly
+- Check that your kubeconfig file is properly configured
+- Ensure you have the necessary permissions to access your cluster
 
 ## ✨ Features
 
@@ -112,6 +155,16 @@ K8sh supports a wide range of Kubernetes resource types:
 - ✅ Ingresses
 - ✅ Pods
 - 🤔 Custom Resources
+
+## 🔧 Configuration
+
+K8sh uses your existing kubectl configuration, so no additional setup is required. It will connect to whatever cluster is currently active in your kubeconfig.
+
+## 📋 Requirements
+
+- **Kubernetes Cluster**: A working Kubernetes cluster (local or remote)
+- **kubectl**: Properly configured kubectl with access to your cluster
+- **Python 3.11+**: The package includes all necessary Python dependencies
 
 ---
 
