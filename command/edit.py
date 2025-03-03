@@ -108,8 +108,8 @@ class EditCommand(FileCommand):
             # For specific resource types with names
             cmd = ["kubectl", "edit", resource_type, resource_name, "-n", namespace]
 
-        # In test mode (K8SH_MOCK=1), just print the command that would be run
-        if os.environ.get("K8SH_MOCK") == "1":
+        # In test mode (DEBUG=1), just print the command that would be run
+        if os.environ.get("DEBUG") == "1":
             # Format the output exactly as the tests expect
             print(f"Would run: EDITOR={editor} {' '.join(cmd)}")
             return

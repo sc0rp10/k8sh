@@ -2,10 +2,9 @@
 """
 Test for the cd command to a file (which should fail)
 """
-from tests.common.test_framework import K8shTestFramework, run_test
 
 
-def test_cd_file(framework: K8shTestFramework) -> None:
+def test_cd_file(framework):
     """Test the cd command to a file (which should fail)"""
     output = framework.run_test_commands([
         "cd default/pods/nginx-pod-1",
@@ -19,12 +18,3 @@ def test_cd_file(framework: K8shTestFramework) -> None:
     # Only check that we're still in the original directory
     # This indicates the cd command failed as expected
     framework.assert_output_contains(["default/pods/nginx-pod-1"])
-
-
-if __name__ == "__main__":
-    run_test(
-        test_cd_file,
-        "file",
-        "cd",
-        expected_items=["default/pods/nginx-pod-1"]
-    )

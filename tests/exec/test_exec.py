@@ -2,10 +2,9 @@
 """
 Test cases for the exec command
 """
-from tests.conftest import K8shTestFramework
 
 
-def test_exec_deployment(framework: K8shTestFramework) -> None:
+def test_exec_deployment(framework):
     """Test exec command on a deployment"""
     # Run the exec command on a deployment
     framework.run_test_commands([
@@ -23,7 +22,7 @@ def test_exec_deployment(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_exec_pod(framework: K8shTestFramework) -> None:
+def test_exec_pod(framework):
     """Test exec command on a pod"""
     # Run the exec command on a pod
     framework.run_test_commands([
@@ -41,7 +40,7 @@ def test_exec_pod(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_exec_deployment_pod(framework: K8shTestFramework) -> None:
+def test_exec_deployment_pod(framework):
     """Test exec command on a pod within a deployment"""
     # Run the exec command on a pod within a deployment
     framework.run_test_commands([
@@ -59,7 +58,7 @@ def test_exec_deployment_pod(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_exec_container(framework: K8shTestFramework) -> None:
+def test_exec_container(framework):
     """Test exec command on a container within a pod"""
     # Run the exec command on a container within a pod
     framework.run_test_commands([
@@ -77,7 +76,7 @@ def test_exec_container(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_exec_deployment_container(framework: K8shTestFramework) -> None:
+def test_exec_deployment_container(framework):
     """Test exec command on a container within a pod within a deployment"""
     # Run the exec command on a container within a pod within a deployment
     framework.run_test_commands([
@@ -95,7 +94,7 @@ def test_exec_deployment_container(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_exec_custom_command(framework: K8shTestFramework) -> None:
+def test_exec_custom_command(framework):
     """Test exec command with a custom command"""
     # Run the exec command with a custom command
     framework.run_test_commands([
@@ -113,7 +112,7 @@ def test_exec_custom_command(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_exec_relative_path(framework: K8shTestFramework) -> None:
+def test_exec_relative_path(framework):
     """Test exec command with a relative path"""
     # Run the exec command with a relative path
     framework.run_test_commands([
@@ -132,7 +131,7 @@ def test_exec_relative_path(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_exec_ssh_alias(framework: K8shTestFramework) -> None:
+def test_exec_ssh_alias(framework):
     """Test ssh alias for exec command"""
     # Run the ssh command (which is an alias for exec)
     framework.run_test_commands([

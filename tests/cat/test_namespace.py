@@ -5,10 +5,8 @@ Test for the cat command on a namespace resource
 import os
 import sys
 
-from tests.common.test_framework import K8shTestFramework
 
-
-def test_cat_namespace(framework: K8shTestFramework) -> None:
+def test_cat_namespace(framework):
     """Test the cat command on a namespace resource"""
     # Cat the default namespace from the root
     framework.run_test_commands([

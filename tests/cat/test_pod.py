@@ -5,10 +5,8 @@ Test for the cat command on a pod resource
 import os
 import sys
 
-from tests.common.test_framework import K8shTestFramework
 
-
-def test_cat_pod(framework: K8shTestFramework) -> None:
+def test_cat_pod(framework):
     """Test the cat command on a pod resource"""
     # Use absolute path to cat a pod
     framework.run_test_commands([

@@ -2,10 +2,9 @@
 """
 Test for the help command
 """
-from tests.common.test_framework import K8shTestFramework, run_test
 
 
-def test_help(framework: K8shTestFramework) -> None:
+def test_help(framework):
     """Test the help command"""
     framework.run_test_commands(["help"])
 
@@ -18,12 +17,3 @@ def test_help(framework: K8shTestFramework) -> None:
         "help",
         "exit"
     ])
-
-
-if __name__ == "__main__":
-    run_test(
-        test_help,
-        "help",
-        "help",
-        expected_items=["Available commands", "ls", "cd", "pwd", "help", "exit"]
-    )

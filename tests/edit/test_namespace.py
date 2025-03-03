@@ -3,11 +3,8 @@
 Test for the edit command on a namespace resource
 """
 
-# Import the framework fixture
-from tests.conftest import K8shTestFramework
 
-
-def test_edit_namespace(framework: K8shTestFramework) -> None:
+def test_edit_namespace(framework):
     """Test edit command on a namespace resource"""
     # Run the edit command
     framework.run_test_commands([

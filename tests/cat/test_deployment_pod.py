@@ -5,10 +5,8 @@ Test for the cat command on a specific pod of a deployment
 import os
 import sys
 
-from tests.common.test_framework import K8shTestFramework
 
-
-def test_cat_deployment_pod(framework: K8shTestFramework) -> None:
+def test_cat_deployment_pod(framework):
     """Test the cat command on a specific pod of a deployment"""
     # Use absolute path to cat a specific pod of a deployment
     framework.run_test_commands([
@@ -39,7 +37,7 @@ def test_cat_deployment_pod(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_cat_deployment_pod_with_long_name(framework: K8shTestFramework) -> None:
+def test_cat_deployment_pod_with_long_name(framework):
     """Test the cat command on a specific pod of a deployment with a complex name"""
     # Use a pod name with a complex format like in real Kubernetes
     framework.run_test_commands([

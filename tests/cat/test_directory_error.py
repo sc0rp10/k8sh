@@ -5,10 +5,8 @@ Test for the cat command on directories (should be prohibited)
 import os
 import sys
 
-from tests.common.test_framework import K8shTestFramework
 
-
-def test_cat_directory_error(framework: K8shTestFramework) -> None:
+def test_cat_directory_error(framework):
     """Test that using cat on a directory produces an error message"""
     # Try to cat a directory
     framework.run_test_commands([
@@ -26,7 +24,7 @@ def test_cat_directory_error(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_cat_namespace_success(framework: K8shTestFramework) -> None:
+def test_cat_namespace_success(framework):
     """Test that using cat on a namespace works correctly"""
     # Try to cat a namespace - this should work as namespaces are resources
     framework.run_test_commands([
@@ -44,7 +42,7 @@ def test_cat_namespace_success(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_cat_resource_type_error(framework: K8shTestFramework) -> None:
+def test_cat_resource_type_error(framework):
     """Test that using cat on a resource type produces an error message"""
     # Try to cat a resource type
     framework.run_test_commands([

@@ -122,8 +122,8 @@ class LogsCommand(GenericCommand):
         else:
             namespace = "default"
 
-        # In mock mode, just return a fake pod
-        if os.environ.get("K8SH_MOCK") == "1":
+        # In test/mock mode, just return a fake pod
+        if os.environ.get("DEBUG") == "1" or os.environ.get("K8SH_MOCK") == "1":
             fake_pod_name = f"{deployment_name}-7f5569bb7f-vsmbx"
             print(f"Found 3 pods, using pod/{fake_pod_name}")
             return fake_pod_name, namespace
@@ -211,7 +211,7 @@ class LogsCommand(GenericCommand):
 
             cmd = f"{kubectl_cmd} {follow_flag} {tail_flag} -n {namespace} {pod_name}".strip()
 
-            if os.environ.get("K8SH_MOCK") == "1":
+            if os.environ.get("DEBUG") == "1" or os.environ.get("K8SH_MOCK") == "1":
                 print(f"Would run: {cmd}")
                 return
             else:
@@ -254,7 +254,7 @@ class LogsCommand(GenericCommand):
 
                 cmd = f"{kubectl_cmd} {follow_flag} {tail_flag} -n {namespace} {pod_part} {container_flag}".strip()
 
-                if os.environ.get("K8SH_MOCK") == "1":
+                if os.environ.get("DEBUG") == "1" or os.environ.get("K8SH_MOCK") == "1":
                     print(f"Would run: {cmd}")
                     return
                 else:
@@ -366,8 +366,8 @@ class LogsCommand(GenericCommand):
         if container_option:
             cmd_parts.extend(shlex.split(container_option))
 
-        # In test mode (K8SH_MOCK=1), just print the command that would be run
-        if os.environ.get("K8SH_MOCK") == "1":
+        # In test mode (DEBUG=1 or K8SH_MOCK=1), just print the command that would be run
+        if os.environ.get("DEBUG") == "1" or os.environ.get("K8SH_MOCK") == "1":
             print(f"Would run: {' '.join(cmd_parts)}")
             return
 

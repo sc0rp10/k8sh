@@ -5,10 +5,8 @@ Test for the cat command on a service resource
 import os
 import sys
 
-from tests.common.test_framework import K8shTestFramework
 
-
-def test_cat_service(framework: K8shTestFramework) -> None:
+def test_cat_service(framework):
     """Test the cat command on a service resource"""
     # Use absolute path to cat a service
     framework.run_test_commands([

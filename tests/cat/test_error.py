@@ -5,10 +5,8 @@ Test for the cat command error cases
 import os
 import sys
 
-from tests.common.test_framework import K8shTestFramework
 
-
-def test_cat_error(framework: K8shTestFramework) -> None:
+def test_cat_error(framework):
     """Test the cat command error cases"""
     # Try to cat a non-existent resource
     framework.run_test_commands([
@@ -26,7 +24,7 @@ def test_cat_error(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_cat_no_args(framework: K8shTestFramework) -> None:
+def test_cat_no_args(framework):
     """Test the cat command with no arguments"""
     # Try to cat without arguments
     framework.run_test_commands([

@@ -5,10 +5,8 @@ Test for the cat command on a specific pod of a deployment using relative paths
 import os
 import sys
 
-from tests.common.test_framework import K8shTestFramework
 
-
-def test_cat_deployment_pod_relative(framework: K8shTestFramework) -> None:
+def test_cat_deployment_pod_relative(framework):
     """Test the cat command on a specific pod of a deployment using relative paths"""
     # First cd to the deployment directory, then cat the pod using a relative path
     framework.run_test_commands([

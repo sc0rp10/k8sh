@@ -182,8 +182,8 @@ class ExecCommand(GenericCommand):
         cmd_parts.append("--")
         cmd_parts.extend(command_args)
 
-        # In test mode (K8SH_MOCK=1), just print the command that would be run
-        if os.environ.get("K8SH_MOCK") == "1":
+        # In test mode (DEBUG=1), just print the command that would be run
+        if os.environ.get("DEBUG") == "1":
             print(f"Would run: {' '.join(cmd_parts)}")
             return
 

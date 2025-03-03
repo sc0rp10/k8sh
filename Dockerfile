@@ -19,7 +19,6 @@ COPY . .
 
 # Set environment variable for mock testing
 ENV PYTHONPATH="${PYTHONPATH}:/app"
-ENV K8SH_MOCK=1
 
 # Run tests
 RUN python -m pytest

@@ -3,11 +3,8 @@
 Test for the edit command with path arguments
 """
 
-# Import the framework fixture
-from tests.conftest import K8shTestFramework
 
-
-def test_edit_absolute_path(framework: K8shTestFramework) -> None:
+def test_edit_absolute_path(framework):
     """Test edit command with an absolute path"""
     # Run the edit command with an absolute path
     framework.run_test_commands([
@@ -26,7 +23,7 @@ def test_edit_absolute_path(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_edit_relative_path(framework: K8shTestFramework) -> None:
+def test_edit_relative_path(framework):
     """Test edit command with a relative path"""
     # Run the edit command with a relative path
     framework.run_test_commands([

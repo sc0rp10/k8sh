@@ -4,10 +4,8 @@ Test cases for different editors in the edit command
 """
 import os
 
-from tests.conftest import K8shTestFramework
 
-
-def test_vim_editor(framework: K8shTestFramework) -> None:
+def test_vim_editor(framework):
     """Test using vim as the editor"""
     # Run the vim command (which is an alias for edit)
     framework.run_test_commands([
@@ -25,7 +23,7 @@ def test_vim_editor(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_nano_editor(framework: K8shTestFramework) -> None:
+def test_nano_editor(framework):
     """Test using nano as the editor"""
     # Run the nano command (which is an alias for edit)
     framework.run_test_commands([
@@ -43,7 +41,7 @@ def test_nano_editor(framework: K8shTestFramework) -> None:
     ])
 
 
-def test_custom_editor(framework: K8shTestFramework) -> None:
+def test_custom_editor(framework):
     """Test using a custom editor defined in EDITOR environment variable"""
     # Set a custom editor in the environment
     old_env = os.environ.copy()
@@ -51,6 +49,7 @@ def test_custom_editor(framework: K8shTestFramework) -> None:
         os.environ["EDITOR"] = "code"
 
         # Create a new framework with the updated environment
+        from tests.common.test_framework import K8shTestFramework
         custom_framework = K8shTestFramework()
 
         # Run the edit command (should use the EDITOR env var)

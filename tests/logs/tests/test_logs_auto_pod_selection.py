@@ -27,8 +27,6 @@ def state(monkeypatch):
 
 def test_logs_command_auto_select_pod(logs_command, state, capsys, monkeypatch):
     """Test that the command automatically selects a pod when path ends with /pods/"""
-    # Set mock mode
-    monkeypatch.setenv("K8SH_MOCK", "1")
 
     # Test with a deployment/pods/ path
     logs_command.execute(state, ["example-deployment/pods/"])
@@ -43,8 +41,6 @@ def test_logs_command_auto_select_pod(logs_command, state, capsys, monkeypatch):
 
 def test_logs_command_auto_select_pod_with_namespace(logs_command, state, capsys, monkeypatch):
     """Test that the command handles namespace in the auto pod selection"""
-    # Set mock mode
-    monkeypatch.setenv("K8SH_MOCK", "1")
 
     # Test with a namespace/deployment/pods/ path
     logs_command.execute(state, ["kube-system/example-deployment/pods/"])
@@ -59,8 +55,6 @@ def test_logs_command_auto_select_pod_with_namespace(logs_command, state, capsys
 
 def test_logs_command_auto_select_pod_with_flags(logs_command, state, capsys, monkeypatch):
     """Test that the command handles flags with auto pod selection"""
-    # Set mock mode
-    monkeypatch.setenv("K8SH_MOCK", "1")
 
     # Test with flags and a deployment/pods/ path
     logs_command.execute(state, ["-f", "-n", "50", "example-deployment/pods/"])
@@ -75,8 +69,6 @@ def test_logs_command_auto_select_pod_with_flags(logs_command, state, capsys, mo
 
 def test_logs_command_with_pods_in_middle_of_path(logs_command, state, capsys, monkeypatch):
     """Test that the command doesn't auto-select when /pods/ is in the middle of the path"""
-    # Set mock mode
-    monkeypatch.setenv("K8SH_MOCK", "1")
 
     # Test with a path that has /pods/ in the middle
     logs_command.execute(state, ["example-deployment/pods/some/other/path"])
@@ -91,8 +83,6 @@ def test_logs_command_with_pods_in_middle_of_path(logs_command, state, capsys, m
 
 def test_logs_command_with_full_pod_name_after_pods(logs_command, state, capsys, monkeypatch):
     """Test that the command doesn't auto-select when a full pod name is after /pods/"""
-    # Set mock mode
-    monkeypatch.setenv("K8SH_MOCK", "1")
 
     # Test with a path that has a pod name after /pods/
     logs_command.execute(state, ["example-deployment/pods/example-deployment-7f5569bb7f-vsmbx"])
@@ -107,8 +97,6 @@ def test_logs_command_with_full_pod_name_after_pods(logs_command, state, capsys,
 
 def test_valid_path_pod_name_in_valid_context(logs_command, state, capsys, monkeypatch):
     """Test a valid path structure where the pod name appears in a pods directory"""
-    # Set mock mode
-    monkeypatch.setenv("K8SH_MOCK", "1")
 
     # Mock a different state with a pods path
     monkeypatch.setattr(state, 'get_current_path', lambda: "default/pods")

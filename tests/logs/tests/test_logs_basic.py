@@ -70,9 +70,6 @@ def test_logs_command_invalid_resource_type(logs_command, state, capsys):
 
 def test_logs_command_mock_mode(logs_command, state, capsys, monkeypatch):
     """Test that the command works in mock mode"""
-    # Set mock mode
-    monkeypatch.setenv("K8SH_MOCK", "1")
-
     # For simplicity, we'll use absolute paths in the tests
     # This way we don't need to set up the state with a proper path structure
 
