@@ -1,0 +1,5 @@
+Using mock Kubernetes client
+$ ls default/services
+nginx-service
+$ exit
+Exiting shell...

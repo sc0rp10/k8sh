@@ -1,0 +1,10 @@
+Using mock Kubernetes client
+$ help
+Available commands:
+  ls [path]    - List contents of the current directory or specified path
+  cd <path>    - Change directory to the specified path
+  pwd          - Print current working directory
+  help         - Show this help message
+  exit         - Exit the shell
+$ exit
+Exiting shell...

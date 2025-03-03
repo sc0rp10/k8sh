@@ -1,0 +1,6 @@
+Using mock Kubernetes client
+$ ls
+default
+kube-system
+$ exit
+Exiting shell...

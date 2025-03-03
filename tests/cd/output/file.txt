@@ -1,0 +1,8 @@
+Using mock Kubernetes client
+$ cd default/pods/nginx-pod-1
+$ cd nginx
+Error: nginx is not a directory
+$ pwd
+/default/pods/nginx-pod-1
+$ exit
+Exiting shell...

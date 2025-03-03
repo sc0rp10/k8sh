@@ -1,0 +1,5 @@
+Using mock Kubernetes client
+$ pwd
+/
+$ exit
+Exiting shell...

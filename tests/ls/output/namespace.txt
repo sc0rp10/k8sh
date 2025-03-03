@@ -1,0 +1,14 @@
+Using mock Kubernetes client
+$ cd default
+$ ls
+configmaps
+daemonsets
+deployments
+ingresses
+pods
+replicasets
+secrets
+services
+statefulsets
+$ exit
+Exiting shell...

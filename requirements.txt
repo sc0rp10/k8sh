@@ -1,0 +1,10 @@
+prompt_toolkit>=3.0.0
+kubernetes>=24.2.0
+pygments>=2.14.0
+pyyaml>=6.0.0
+fuzzyfinder>=2.1.0
+
+# Testing dependencies
+pytest>=7.0.0
+pytest-mock>=3.10.0
+pytest-xdist>=3.3.0

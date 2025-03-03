@@ -1,0 +1,6 @@
+Using mock Kubernetes client
+$ cd default/services
+$ pwd
+/default/services
+$ exit
+Exiting shell...
