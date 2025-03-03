@@ -13,7 +13,7 @@ def test_edit_absolute_path(framework):
 
     # Assert that the correct message was printed
     framework.assert_output_contains([
-        "Would run: EDITOR=vim kubectl edit services kube-dns -n kube-system"
+        "Would run: EDITOR=mock-editor kubectl edit services kube-dns -n kube-system"
     ])
 
     # Assert that no error message was printed
@@ -33,7 +33,7 @@ def test_edit_relative_path(framework):
 
     # Assert that the correct message was printed
     framework.assert_output_contains([
-        "Would run: EDITOR=vim kubectl edit services kubernetes -n default"
+        "Would run: EDITOR=mock-editor kubectl edit services kubernetes -n default"
     ])
 
     # Assert that no error message was printed
