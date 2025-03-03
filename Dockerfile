@@ -17,11 +17,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the source code
 COPY . .
 
-# Set environment variable for mock testing
+# Set environment variables for mock testing
 ENV PYTHONPATH="${PYTHONPATH}:/app"
+ENV K8SH_MOCK=1
 
 # Run tests
-RUN python -m pytest
+RUN python -m pytest -n auto
 
 # Stage 2: Package with FPM
 FROM ruby:3.1-slim AS build

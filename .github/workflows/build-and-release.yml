@@ -27,8 +27,10 @@ jobs:
           pip install pytest pytest-mock pytest-xdist
 
       - name: Run tests
+        env:
+          K8SH_MOCK: 1
         run: |
-          python -m pytest
+          python -m pytest -n auto
 
   build-package:
     name: Build Debian Package
