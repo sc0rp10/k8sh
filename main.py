@@ -19,6 +19,7 @@ from command.logs import LogsCommand
 from command.ls import LsCommand
 from command.pwd import PwdCommand
 from command.exec import ExecCommand
+from command.restart import RestartCommand
 from command.registry import CommandRegistry
 from state.state import State
 from utils.terminal import Color, colorize, disable_colors
@@ -36,6 +37,7 @@ def register_commands(registry: CommandRegistry) -> None:
     registry.register_command(LogsCommand())
     registry.register_command(ClearCommand())
     registry.register_command(HistoryCommand())
+    registry.register_command(RestartCommand())
 
     # Help command (needs registry reference)
     registry.register_command(HelpCommand(registry))

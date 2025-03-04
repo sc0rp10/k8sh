@@ -79,6 +79,7 @@ If you see your Kubernetes namespaces listed, the installation was successful!
 | `edit [resource]` | Edit resource using your preferred editor | `edit deployment-name` |
 | `exec [pod]` | Execute a command in a pod | `exec nginx-pod` |
 | `logs [pod]` | View logs from a pod | `logs nginx-pod` |
+| `restart [controller]` | Restart a controller (deployment, statefulset, daemonset) | `restart deployment-name` |
 | `help [command]` | Show help for all commands or specific command | `help cat` |
 | `exit` | Exit the shell | `exit` |
 
@@ -127,6 +128,9 @@ $ logs frontend-7f5569bb7f-bcgjs
 
 # Execute a command in a pod
 $ exec frontend-7f5569bb7f-bcgjs
+
+# Restart a deployment
+$ restart frontend
 ```
 
 ## 🗂️ Virtual Filesystem
