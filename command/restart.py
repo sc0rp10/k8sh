@@ -27,7 +27,7 @@ class RestartCommand(FileCommand):
 
     def get_aliases(self) -> List[str]:
         """Get the aliases for the command"""
-        return ["touch"]
+        return ["touch", "rollout-restart"]
 
     def get_usage(self) -> str:
         """Get the extended usage information for the command"""

@@ -28,6 +28,10 @@ class LogsCommand(GenericCommand):
         """Get the help text for the command"""
         return "Display logs from a Kubernetes resource (deployment, pod, or container)"
 
+    def has_path_completion(self) -> bool:
+        """Enable path completion for this command"""
+        return True
+
     def get_usage(self) -> str:
         """Get the extended usage information for the command"""
         cmd = colorize("logs", Color.BRIGHT_YELLOW)

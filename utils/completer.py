@@ -2,6 +2,7 @@
 """
 Autocomplete functionality for K8sh with fuzzy matching
 """
+import os
 from typing import Iterable
 
 from fuzzyfinder import fuzzyfinder
@@ -230,6 +231,7 @@ class K8shCompleter(Completer):
 
         # Split the text into parts
         parts = text.split()
+        matches = None
 
         # If we only have one part or the cursor is still in the first part,
         # we're completing a command
@@ -296,8 +298,20 @@ class K8shCompleter(Completer):
 
         # For navigation commands, complete paths
         if command in self.registry.get_for_autocomplete():
-            # Get the path being typed
-            typed_path = parts[-1] if len(parts) > 1 else ""
+            # Get the path being typed - find the last part that doesn't start with a dash
+            # This handles commands like 'tail -f pods/' where 'pods/' is the path
+            typed_path = ""
+            for i, part in enumerate(parts[1:], 1):
+                if not part.startswith('-'):
+                    typed_path = part
+                    break
+
+            # If we're at the end of the command and the cursor is at the end,
+            # and we didn't find a path, we should offer completions for the current directory
+            if not typed_path and len(parts) > 1 and document.cursor_position == len(document.text):
+                # Check if the last part is a flag (like -f)
+                if parts[-1].startswith('-'):
+                    typed_path = ""  # Offer completions for current directory
 
             # Special handling for paths ending with a slash but no additional text
             # This ensures we show content within a directory when user types "dir/" and hits tab
@@ -308,6 +322,10 @@ class K8shCompleter(Completer):
 
                     # Get the current path as a base
                     base_path = self.state.get_current_path()
+
+                    # Debug output
+                    if os.environ.get("DEBUG") == "1":
+                        print(f"Debug - typed_path: {typed_path}, base_path: {base_path}")
 
                     # Combine with the typed path (without the trailing slash)
                     full_path = typed_path[:-1]
